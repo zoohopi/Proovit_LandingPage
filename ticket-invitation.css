@@ -53,4 +53,6 @@ header h2{font-family:inherit;font-weight:700;font-size:clamp(26px,3.6vw,40px);l
 .back:before,.back:after{display:none}
 .back-art{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;transform:scaleX(-1);pointer-events:none}
 .back h3,.back-edition,.back-number,.stamp-target{z-index:1}
+.back h3{font-family:inherit;font-weight:700;letter-spacing:-.04em;line-height:1.35}
+.cursor-stamp{filter:drop-shadow(0 0 5px #ff78acb3) drop-shadow(0 0 15px #ff2e7e80) drop-shadow(0 0 30px #ff2e7e4d)}
 @media(max-width:600px){.scene{width:72vw}.paper-runway{top:50%;background-size:100% 145%;background-position:center 42%}.assembly{transform:rotateY(calc(var(--flip)*180deg)) scale(calc(.94 + var(--isolate)*.36))}}

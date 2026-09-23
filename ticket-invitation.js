@@ -31,7 +31,7 @@
                 <img class="back-art" src="assets/마지막 초대장 페이지/invitation-ticket-back-3d-v1.png" alt="" draggable="false">
                 <span class="back-edition">PROOVIT · GAME 001</span>
                 <h3>게임 한 판 하시겠습니까?</h3>
-                <button class="stamp-target" disabled aria-label="초대장 중앙에 심볼 도장 찍기"><span class="stamp-guide">당신의 결심을 남겨주세요</span><img class="stamp" src="assets/symbol-pink.webp" alt="참가 도장"><i class="stamp-ring"></i></button>
+                <button class="stamp-target" disabled aria-label="초대장 중앙에 심볼 도장 찍기"><span class="stamp-guide">클릭을 눌러 참가 동의 도장을 찍어주세요</span><img class="stamp" src="assets/symbol-pink.webp" alt="참가 도장"><i class="stamp-ring"></i></button>
                 <span class="back-number">No. ${this.serial}</span>
               </div>
             </div>
