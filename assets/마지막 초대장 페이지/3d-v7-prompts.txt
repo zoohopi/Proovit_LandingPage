@@ -1,0 +1,7 @@
+Tool: built-in image_gen. Reference: invitation-ticket-3d-v6.png.
+
+Front prompt:
+Precise minimal edit of this transparent 3D ticket asset. Remove ONLY the Korean label 참가번호 beneath 'Your next chapter starts here.' and reconstruct the natural cream cotton paper grain there. Keep ALL other words, pink printing, QR, lines, exact cutout silhouette, paper thickness, shadows, positioning, dimensions and transparent background unchanged. Keep the participant-number area empty. Do not add anything, do not redesign.
+
+Back prompt:
+Create the BLANK REVERSE face material of this exact 3D thick cotton paper ticket. Remove absolutely ALL ink, lettering, QR, lines and symbols, reconstruct unprinted ivory beige cotton paper with same realistic embossed fibers and soft illumination. Preserve identical silhouette, dimensions, edge notches, bottom layered thickness, gentle bevel, shadow and transparent alpha background. Front-on orthographic, same framing, no added object. Keep the larger top and bottom stub notches at same 65% x position; website will mirror this asset horizontally for reverse side. Only blank paper, no text. No flat vector simplification.

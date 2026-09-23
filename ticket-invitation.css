@@ -43,3 +43,14 @@ dialog{border:1px solid #ff2e7e50;border-radius:22px;padding:0;background:linear
 .cover{background:#101012 url('./assets/마지막 초대장 페이지/invitation-black-band-3d-v1.png') center/auto 155%;box-shadow:8px 9px 16px #0008,inset 2px 1px 1px #e9dce340,inset -3px 0 4px #0009}
 @media(max-width:600px){.scene{width:84vw}.paper-runway{top:-26%;height:152%;background-size:auto 145%}.assembly{transform:rotateY(calc(var(--flip)*180deg)) scale(calc(.94 + var(--isolate)*.06))}}
 @media(max-height:650px) and (min-width:601px){.scene{width:min(58vw,640px)}}
+/* Shared centerline, continuous selection zoom, and the same paper on both faces. */
+:host{font-family:inherit}
+header h2{font-family:inherit;font-weight:700;font-size:clamp(26px,3.6vw,40px);line-height:1.35;letter-spacing:-.04em}
+.paper-runway{top:50%;transform:translate(-50%,-50%);background-position:center 42%}
+.assembly{transform:rotateY(calc(var(--flip)*180deg)) rotateX(calc(var(--isolate)*(1 - var(--flip))*-3deg)) scale(calc(.91 + var(--isolate)*.39))}
+.hero-ticket{transform:translateX(calc((1 - var(--run))*600%)) translateZ(3px)}
+.back{background:none;border:0;box-shadow:none;filter:drop-shadow(0 8px 2px #0006) drop-shadow(0 25px 22px #0008)}
+.back:before,.back:after{display:none}
+.back-art{position:absolute;inset:0;width:100%;height:100%;object-fit:fill;transform:scaleX(-1);pointer-events:none}
+.back h3,.back-edition,.back-number,.stamp-target{z-index:1}
+@media(max-width:600px){.scene{width:72vw}.paper-runway{top:50%;background-size:100% 145%;background-position:center 42%}.assembly{transform:rotateY(calc(var(--flip)*180deg)) scale(calc(.94 + var(--isolate)*.36))}}

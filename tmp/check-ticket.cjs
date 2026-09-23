@@ -13,10 +13,15 @@ const path=require('path');
   assert.equal(await page.evaluate(()=>document.fonts.check('40px Italianno')),true);
   await host.evaluate(e=>scrollTo(0,e.getBoundingClientRect().top+scrollY));
   await page.waitForTimeout(150);
-  for(let i=0;i<3;i++){await page.mouse.move(20,450);await page.mouse.wheel(0,120);await page.waitForTimeout(1150);}
-  assert.ok(Math.abs(await host.evaluate(e=>e.progress)-.42)<.005,'three wheels select ticket');
+  const alignment=await host.evaluate(e=>{const a=e.$('.paper-runway').getBoundingClientRect(),b=e.$('.scene').getBoundingClientRect();return Math.abs(a.y+a.height/2-b.y-b.height/2);});assert.ok(alignment<1,'shared centerline');
+  const fonts=await page.evaluate(()=>['proovit-community','proovit-ticket-invitation'].map(s=>{const c=getComputedStyle(document.querySelector(s).shadowRoot.querySelector('h2'));return [c.fontFamily,c.fontWeight];}));assert.deepEqual(fonts[0],fonts[1]);
   await page.screenshot({path:path.join(__dirname,'ticket-strip.png')});
-  await page.locator('proovit-ticket-invitation .next').click();await page.waitForTimeout(1150);
+  await page.mouse.move(20,450);await page.mouse.wheel(0,120);
+  const samples=[];for(let i=0;i<5;i++){await page.waitForTimeout(500);samples.push(await host.evaluate(e=>Number(e.stage.style.getPropertyValue('--run'))));if(i===1)await page.mouse.wheel(0,120);}
+  assert.ok(samples[1]-samples[0]>samples[4]-samples[3],'reel decelerates');
+  await page.waitForTimeout(650);
+  assert.ok(Math.abs(await host.evaluate(e=>e.progress)-.58)<.005,'uninterrupted reel ends on enlarged ticket');
+  assert.ok(await host.evaluate(e=>Math.abs(new DOMMatrix(getComputedStyle(e.$('.assembly')).transform).m11-1.3)<.01),'30 percent larger');
   await page.screenshot({path:path.join(__dirname,'ticket-selected.png')});
   const serial=await host.evaluate(e=>e.serial);assert.match(serial,/^\d{3}$/);
   assert.equal(await page.locator('proovit-ticket-invitation .selected .number').textContent(),`No. ${serial}`);
@@ -46,6 +51,7 @@ const path=require('path');
   await page.locator('proovit-ticket-invitation .next').click();await page.waitForTimeout(100);
   assert.ok(Math.abs(await host.evaluate(e=>e.progress)-.78)<.005);
   assert.deepEqual(errors,[]);
-  console.log('PASS full site: three-wheel reel, matching serial, cover, flip, fixed-center stamp, dialog cancel/link, reverse, mobile, reduced motion, no runtime errors');
+  assert.ok(await page.locator('proovit-ticket-invitation .back-art').evaluate(e=>e.complete&&e.naturalWidth>0),'3D back loaded');
+  console.log('PASS: matching bold font, center alignment, continuous deceleration, 30% zoom, matching serial, 3D reverse, cover, stamp, popup, scroll release, mobile, reduced motion');
  }finally{await browser.close();}
 })().catch(e=>{console.error(e);process.exitCode=1;});
