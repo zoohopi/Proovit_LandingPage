@@ -1,6 +1,7 @@
 /* PROOVIT hero: one coordinated timeline, with responsive card coordinates. */
 (() => {
   const ASSETS = new URL('./assets/', document.currentScript?.src || location.href).href;
+  const HERO_ASSETS = new URL('./assets/히어로 페이지/', document.currentScript?.src || location.href).href;
   const clamp = (n) => Math.max(0, Math.min(1, n));
   const ease = (n) => { n = clamp(n); return n * n * (3 - 2 * n); };
   class ProovitHero extends HTMLElement {
@@ -13,7 +14,7 @@
           :host{display:block;color:#F4EDE4;font-family:'Pretendard Variable',Pretendard,system-ui,sans-serif}
           *{box-sizing:border-box}button,a{-webkit-tap-highlight-color:transparent}button{font:inherit;cursor:pointer}
           .stage{height:100svh;min-height:620px;position:relative;background:#0A0708;overflow:hidden}
-          .background{position:absolute;inset:0;background:url('${ASSETS}hero-background.png') center/cover;opacity:0}
+          .background{position:absolute;inset:0;background:url('${HERO_ASSETS}hero-background.png') center/cover;opacity:0}
           .background:after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 83%,#0A0708)}
           nav{position:fixed;inset:0 0 auto;z-index:40;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(22px,5vw,80px);background:rgba(10,7,8,.76);backdrop-filter:blur(16px);border-bottom:1px solid #ffffff20;opacity:0;visibility:hidden}
           .logo{width:132px;height:auto;display:block}.invite{padding:10px 22px;border:1px solid #FF2E7E;border-radius:40px;color:#F4EDE4;font-size:14px;font-weight:700;text-decoration:none;transition:background .2s}
@@ -31,7 +32,7 @@
           <div class="background"></div>
           <nav aria-label="메인 내비게이션"><a href="#scene-01" class="home" aria-label="프루빗 처음으로"><img class="logo" src="${ASSETS}logo-pink.webp" alt="프루빗"></a><a class="invite" href="#invite">초대창 확인</a></nav>
           <canvas class="meteors" aria-hidden="true"></canvas>
-          <img class="actor" src="${ASSETS}hero-proovie.png" alt="명함을 건네며 미소 짓는 프루비" fetchpriority="high">
+          <img class="actor" src="${HERO_ASSETS}hero-proovie.png" alt="명함을 건네며 미소 짓는 프로비" fetchpriority="high">
           <canvas class="magic" aria-hidden="true"></canvas>
           <h1 aria-label="선생님, 저랑 게임 한 번 하시겠습니까?"><span class="line" aria-hidden="true"></span><span class="line" aria-hidden="true"></span></h1>
           <a class="next" href="#scene-02">어떤 게임인지 궁금해요 <span>↓</span></a>
@@ -67,7 +68,7 @@
       this.paths = ['M130 50 A90 90 0 1 1 129.99 50','M310 230 L400 50 L490 230 Z','M570 50 H750 V230 H570 Z'].map((d) => { const p = document.createElementNS('http://www.w3.org/2000/svg', 'path'); p.setAttribute('d', d); return { el:p, length:p.getTotalLength() }; });
       // Fixed, asymmetric set: no new stars accumulate over time.
       this.stars = [[.09,.24,85,48,1.3,8,0],[.24,.18,45,65,.8,11,3],[.19,.51,65,40,.7,9,6],[.07,.65,35,28,.5,13,2],[.28,.34,24,38,.65,10,7],[.81,.24,-64,74,1,12,4],[.9,.48,34,66,.7,9,1],[.86,.62,-40,55,.6,14,5],[.96,.32,-36,42,.5,11,8]];
-      Promise.all([this.actor.decode().catch(() => {}), new Promise((resolve) => { const im = new Image(); im.onload = im.onerror = resolve; im.src = ASSETS + 'hero-background.png'; })]).then(() => { if (this.running) { this.measure(); this.start(); } });
+      Promise.all([this.actor.decode().catch(() => {}), new Promise((resolve) => { const im = new Image(); im.onload = im.onerror = resolve; im.src = HERO_ASSETS + 'hero-background.png'; })]).then(() => { if (this.running) { this.measure(); this.start(); } });
     }
     measure() {
       const box = this.stage.getBoundingClientRect(); const a = this.actor.getBoundingClientRect();
