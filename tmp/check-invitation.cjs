@@ -1,0 +1,22 @@
+const assert=require('node:assert/strict');
+const fs=require('node:fs');const vm=require('node:vm');const path=require('node:path');
+let reduced=false,top=0,clock=0,id=0;const raf=new Map(),events={};
+const style={values:{},setProperty(k,v){this.values[k]=v;}};
+const classes=new Set();
+const stage={style,dataset:{},classList:{toggle(name,on){if(on)classes.add(name);else classes.delete(name);}}};
+const letter={attrs:{},toggleAttribute(k,v){this.attrs[k]=v;},setAttribute(k,v){this.attrs[k]=v;}};
+const track={offsetHeight:1520,getBoundingClientRect:()=>({top})};
+const button={addEventListener(){}};
+const section={querySelector:s=>({'.invitation-stage':stage,'.invite-scroll':track,'.invitation-letter':letter,'.invite-open':button}[s])};
+const motion={get matches(){return reduced;},addEventListener(t,f){events.motion=f;}};
+const context={window:{addEventListener(t,f){events[t]=f;}},document:{hidden:false,addEventListener(){}},innerHeight:800,matchMedia:()=>motion,AbortController,performance:{now:()=>clock},requestAnimationFrame:f=>{raf.set(++id,f);return id;},cancelAnimationFrame:i=>raf.delete(i),IntersectionObserver:class{observe(){}disconnect(){}},ResizeObserver:class{observe(){}disconnect(){}}};
+vm.runInNewContext(fs.readFileSync(path.join(__dirname,'..','invitation-stage.js'),'utf8'),context);
+const dispose=context.window.mountProovitInvitation(section);
+function settle(){for(let i=0;i<200&&raf.size;i++){clock+=16;const callbacks=[...raf.values()];raf.clear();callbacks.forEach(f=>f(clock));}}
+settle();assert.equal(stage.dataset.state,'closed');assert.equal(letter.attrs.inert,true);assert.equal(classes.has('number-revealed'),false);
+top=-360;events.scroll();settle();assert.equal(stage.dataset.state,'opening');assert.ok(parseFloat(style.values['--letter-shift'])>0);assert.ok(parseFloat(style.values['--flap-angle'])<-170);
+top=-720;events.scroll();settle();assert.equal(stage.dataset.state,'open');assert.equal(letter.attrs.inert,false);assert.equal(style.values['--letter-shift'],'0%');assert.equal(classes.has('number-revealed'),true);
+top=0;events.scroll();settle();assert.equal(stage.dataset.state,'closed');assert.equal(letter.attrs['aria-hidden'],'true');assert.equal(classes.has('number-revealed'),false);
+reduced=true;events.motion();assert.equal(stage.dataset.state,'open');assert.equal(letter.attrs.inert,false);
+dispose();assert.equal(raf.size,0);
+console.log('PASS: closed, staged opening, full open, reverse scroll, reduced motion, keyboard accessibility, animation cleanup');

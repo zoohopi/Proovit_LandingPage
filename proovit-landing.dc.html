@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+<script src="./hero-stage.js"></script>
+<script src="./pot-stage.js"></script>
+<script src="./reviews-stage.js"></script>
+<script src="./community-stage.js"></script>
+<script src="./landing-motion.js" defer></script>
+<script src="./ticket-invitation.js"></script>
+<style>@font-face{font-family:Italianno;src:url("./assets/italianno-regular.ttf") format("truetype");font-weight:400;font-style:normal;font-display:swap}</style>
+
+
+<link rel="stylesheet" href="./proof-method.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>프루빗 — 선생님, 저랑 게임 한 번 하시겠습니까?</title>
+<meta name="description" content="목표를 정하고, 돈을 걸고, 지키면 됩니다. 살아남은 분들이 판돈을 나눠 가지는 1인 창업가용 목표 챌린지.">
+<meta property="og:title" content="프루빗 — 게임에 참여하시겠습니까?">
+<meta property="og:description" content="참가번호가 적힌 초대장이 발급되었습니다. 1회에 한하여 유효합니다.">
+<meta property="og:image" content="assets/piggy-bank.webp">
+<meta property="og:type" content="website">
+<link rel="preload" as="image" href="assets/hero-proovie.png" fetchpriority="high">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap">
+<style>
+  html { scroll-behavior: smooth; }
+  [data-reveal] { transition: opacity .85s cubic-bezier(.16,1,.3,1), transform 1.05s cubic-bezier(.16,1,.3,1) !important; }
+  #scene-04 > div { max-width:820px !important; }
+  #scene-04 h2, #scene-04 > div > p { text-align:center; }
+  #scene-04 > div > div:nth-child(2) { display:block !important; }
+  @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } [data-reveal] { transition:none !important; } }
+  body { margin: 0; background: #0A0708; color: #F4EDE4; font-family: 'Pretendard Variable', Pretendard, system-ui, sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  * { box-sizing: border-box; }
+  a { color: #FF6BA0; text-decoration: none; }
+  a:hover { color: #FF2E7E; text-decoration: underline; }
+  @keyframes unmask { from { -webkit-mask-size: 0% 100%; mask-size: 0% 100%; } to { -webkit-mask-size: 100% 100%; mask-size: 100% 100%; } }
+  @keyframes caret { 0%, 45% { opacity: 1; } 46%, 100% { opacity: 0; } }
+  @keyframes glowpulse { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+  @keyframes arrowbob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+  @keyframes feedin { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes stampdrop { 0% { transform: rotate(-18deg) scale(2.2); opacity: 0; } 60% { transform: rotate(-9deg) scale(.94); opacity: 1; } 80% { transform: rotate(-9deg) scale(1.04); } 100% { transform: rotate(-9deg) scale(1); opacity: 1; } }
+  @keyframes flicker { 0%, 100% { transform: scale(1) translateY(0); opacity: 1; } 35% { transform: scale(1.14) translateY(-4px); opacity: .78; } 70% { transform: scale(.94) translateY(2px); opacity: .92; } }
+  @keyframes stampin { 0% { transform: rotate(-26deg) scale(2.6); opacity: 0; } 55% { transform: rotate(-13deg) scale(.92); opacity: 1; } 75% { transform: rotate(-13deg) scale(1.05); } 100% { transform: rotate(-13deg) scale(1); opacity: 1; } }
+  @keyframes shock { 0% { transform: scale(.5); opacity: .9; } 100% { transform: scale(2.3); opacity: 0; } }
+  @keyframes cardshake { 0%, 100% { margin-left: 0; } 20% { margin-left: -7px; } 45% { margin-left: 6px; } 70% { margin-left: -3px; } }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</helmet>
+
+<div style="position: relative; width: 100%; overflow-x: clip; text-align: center">
+
+  <section id="scene-01" data-scene="hero" data-screen-label="01 히어로" style="position:relative;scroll-margin-top:0">
+    <x-import component-from-global-scope="proovit-hero" hint-size="100%,100vh"></x-import>
+  </section>
+
+  <div style="display: grid; justify-items: center; padding: clamp(18px,3.5vw,40px) 0; margin-top: 20px">
+    <div style="width:1px;height:clamp(80px,15vw,150px);background:linear-gradient(rgba(255,46,126,0),rgba(255,46,126,.85) 42%,rgba(255,46,126,.85) 58%,rgba(255,46,126,0))"></div>
+  </div>
+
+  <section id="scene-02" data-scene="problem" data-screen-label="02 문제 제기" style="scroll-margin-top:clamp(88px,14vh,176px);padding:0 0 clamp(24px,4vw,48px)">
+    <div style="max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,32px)">
+      <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);max-width:38em;margin:0 auto">
+        <h2 style="margin:0;font-size:clamp(24px,3.6vw,40px);font-weight:900;letter-spacing:-.03em;line-height:1.3">이런 결심 한 적 있으시죠?</h2>
+        
+      </div>
+      <div style="margin-top:clamp(26px,4vw,44px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,248px),1fr));gap:14px">
+        <div data-reveal="1" style="opacity: 0; transform: translateY(26px); transition: opacity .7s ease .05s,transform .7s cubic-bezier(.2,.7,.2,1) .05s; position: relative; overflow: hidden; background: #15100F; border: 1px solid rgba(255,255,255,.07); border-radius: 18px; padding: clamp(58px,9vw,76px) clamp(16px,2.4vw,22px) clamp(18px,2.4vw,22px)">
+          <div style="position:absolute;top:clamp(10px,1.6vw,15px);right:clamp(10px,1.6vw,15px);display:grid;place-items:center;padding:6px clamp(9px,1.7vw,13px);border:3px solid rgba(255,46,126,.85);border-radius:4px;color:#FF2E7E;background:rgba(255,46,126,.08);box-shadow:inset 0 0 0 2px rgba(255,46,126,.28);text-align:center;pointer-events:none;opacity:{{ stampOp }};transition:opacity .25s ease;animation:{{ stampCard1 }}">
+            <div>
+              <div style="font-size:clamp(15px,2.2vw,19px);font-weight:900;letter-spacing:-.02em;line-height:1;white-space:nowrap">실패</div>
+              <div style="margin-top:5px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:8px;letter-spacing:.16em">FAILED</div>
+            </div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;color:#8E8480">CASE 01</div>
+          <div style="margin-top:10px;font-size:clamp(15px,2vw,17px);font-weight:800;color:#F4EDE4">“매일 아침 6시에 코딩 2시간”</div>
+          <div style="margin-top:12px;font-size:clamp(13px,1.6vw,14px);line-height:1.65;color:#A99C97">3일차에 알람을 껐습니다. 아무도 몰랐고, 아무 일도 없었습니다.</div>
+          <div style="margin-top:16px;display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:#FFC24D;border:1px solid rgba(255,194,77,.35);border-radius:8px;padding:4px 10px">D+3 / D+90</div>
+        </div>
+        <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease .1s,transform .7s cubic-bezier(.2,.7,.2,1) .1s;position:relative;overflow:hidden;background:#15100F;border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:clamp(58px,9vw,76px) clamp(16px,2.4vw,22px) clamp(18px,2.4vw,22px)">
+          <div style="position:absolute;top:clamp(10px,1.6vw,15px);right:clamp(10px,1.6vw,15px);display:grid;place-items:center;padding:6px clamp(9px,1.7vw,13px);border:3px solid rgba(255,46,126,.85);border-radius:4px;color:#FF2E7E;background:rgba(255,46,126,.08);box-shadow:inset 0 0 0 2px rgba(255,46,126,.28);text-align:center;pointer-events:none;opacity:{{ stampOp }};transition:opacity .25s ease;animation:{{ stampCard2 }}">
+            <div>
+              <div style="font-size:clamp(15px,2.2vw,19px);font-weight:900;letter-spacing:-.02em;line-height:1;white-space:nowrap">미달성</div>
+              <div style="margin-top:5px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:8px;letter-spacing:.16em">UNMET</div>
+            </div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;color:#8E8480">CASE 02</div>
+          <div style="margin-top:10px;font-size:clamp(15px,2vw,17px);font-weight:800;color:#F4EDE4">“주 2회 빌드 로그 발행”</div>
+          <div style="margin-top:12px;font-size:clamp(13px,1.6vw,14px);line-height:1.65;color:#A99C97">2주 뒤 초안 폴더에 글 4개가 남았습니다. 발행 버튼은 누르지 않았습니다.</div>
+          <div style="margin-top:16px;display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:#FFC24D;border:1px solid rgba(255,194,77,.35);border-radius:8px;padding:4px 10px">발행 0건 / 초안 4건</div>
+        </div>
+        <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease .15s,transform .7s cubic-bezier(.2,.7,.2,1) .15s;position:relative;overflow:hidden;background:#15100F;border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:clamp(58px,9vw,76px) clamp(16px,2.4vw,22px) clamp(18px,2.4vw,22px)">
+          <div style="position:absolute;top:clamp(10px,1.6vw,15px);right:clamp(10px,1.6vw,15px);display:grid;place-items:center;padding:6px clamp(9px,1.7vw,13px);border:3px solid rgba(255,46,126,.85);border-radius:4px;color:#FF2E7E;background:rgba(255,46,126,.08);box-shadow:inset 0 0 0 2px rgba(255,46,126,.28);text-align:center;pointer-events:none;opacity:{{ stampOp }};transition:opacity .25s ease;animation:{{ stampCard3 }}">
+            <div>
+              <div style="font-size:clamp(15px,2.2vw,19px);font-weight:900;letter-spacing:-.02em;line-height:1;white-space:nowrap">포기</div>
+              <div style="margin-top:5px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:8px;letter-spacing:.16em">DROPPED</div>
+            </div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;color:#8E8480">CASE 03</div>
+          <div style="margin-top:10px;font-size:clamp(15px,2vw,17px);font-weight:800;color:#F4EDE4">“콜드메일 하루 10통”</div>
+          <div style="margin-top:12px;font-size:clamp(13px,1.6vw,14px);line-height:1.65;color:#A99C97">첫날 10통, 둘째 날 2통. 대신 랜딩 페이지 색을 세 번 바꾸셨습니다.</div>
+          <div style="margin-top:16px;display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:#FFC24D;border:1px solid rgba(255,194,77,.35);border-radius:8px;padding:4px 10px">전송 12통 / 목표 300통</div>
+        </div>
+        <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease .2s,transform .7s cubic-bezier(.2,.7,.2,1) .2s;position:relative;overflow:hidden;background:#15100F;border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:clamp(58px,9vw,76px) clamp(16px,2.4vw,22px) clamp(18px,2.4vw,22px)">
+          <div style="position:absolute;top:clamp(10px,1.6vw,15px);right:clamp(10px,1.6vw,15px);display:grid;place-items:center;padding:6px clamp(9px,1.7vw,13px);border:3px solid rgba(255,46,126,.85);border-radius:4px;color:#FF2E7E;background:rgba(255,46,126,.08);box-shadow:inset 0 0 0 2px rgba(255,46,126,.28);text-align:center;pointer-events:none;opacity:{{ stampOp }};transition:opacity .25s ease;animation:{{ stampCard4 }}">
+            <div>
+              <div style="font-size:clamp(15px,2.2vw,19px);font-weight:900;letter-spacing:-.02em;line-height:1;white-space:nowrap">연기</div>
+              <div style="margin-top:5px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:8px;letter-spacing:.16em">POSTPONED</div>
+            </div>
+          </div>
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.14em;color:#8E8480">CASE 04</div>
+          <div style="margin-top: 10px; font-size: clamp(15px,2vw,17px); font-weight: 800; color: #F4EDE4">“D-30 런칭 로드맵”</div>
+          <div style="margin-top:12px;font-size:clamp(13px,1.6vw,14px);line-height:1.65;color:#A99C97">D-9에 노션 페이지를 조용히 삭제하셨습니다. 목격자는 없었습니다.</div>
+          <div style="margin-top:16px;display:inline-block;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:#FFC24D;border:1px solid rgba(255,194,77,.35);border-radius:8px;padding:4px 10px">런칭 연기 3회</div>
+        </div>
+      </div>
+      <p data-reveal="1" style="opacity: 0; transform: translateY(26px); transition: opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1); margin: clamp(22px,3.5vw,34px) 0 0; font-size: clamp(18px,2.9vw,24px); line-height: 1.7; color: #F4EDE4EB; font-weight: 800">다만 지키지 않아도, 지켜도 아무 일이 없었을 뿐이죠.</p>
+      
+    </div>
+  </section>
+
+  <div style="display:grid;justify-items:center;padding:clamp(18px,3.5vw,40px) 0">
+    <div style="width:1px;height:clamp(80px,15vw,150px);background:linear-gradient(rgba(255,46,126,0),rgba(255,46,126,.85) 42%,rgba(255,46,126,.85) 58%,rgba(255,46,126,0))"></div>
+  </div><p data-reveal="1" style="opacity: 0; transform: translateY(26px); transition: opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1); margin: clamp(24px,4vw,40px) 0 0; font-size: clamp(24px,3.6vw,40px); font-weight: 700; letter-spacing: -.03em; line-height: 1.3; color: #F4EDE4; margin-bottom: clamp(48px,9vw,120px); margin-top: clamp(48px,9vw,120px)">혼자 하는 일에는 마감도, 관객도, 벌칙도 없습니다.<br><span style="color: #FF6BA0">그래서 저희가 판을 하나 깔았습니다.</span></p><div style="display:grid;justify-items:center;padding:clamp(18px,3.5vw,40px) 0">
+    <div style="width:1px;height:clamp(80px,15vw,150px);background:linear-gradient(rgba(255,46,126,0),rgba(255,46,126,.85) 42%,rgba(255,46,126,.85) 58%,rgba(255,46,126,0))"></div>
+  </div>
+
+  <section id="scene-03" data-scene="pot" data-screen-label="03 판돈 구조" style="padding:0 0 clamp(24px,4vw,48px)">
+    <div style="max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,32px)">
+      <x-import component-from-global-scope="proovit-pot" hint-size="100%,850px"></x-import>
+
+      <div data-reveal="1" style="transition: opacity .7s ease .08s,transform .7s cubic-bezier(.2,.7,.2,1) .08s; margin-top: clamp(22px,3vw,34px); border: 1px solid rgba(255,255,255,.08); padding: clamp(20px,3vw,34px)">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.18em;color:#8E8480">SIMULATION · 30일 챌린지 1회 기준</div>
+        <div style="margin-top:22px;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:clamp(14px,2vw,24px)">
+          <div style="flex:1 1 180px;min-width:0">
+            <div style="font-size:13px;color:#A99C97">참가</div>
+            <div style="margin-top:6px;font-size:clamp(26px,4vw,40px);font-weight:900;letter-spacing:-.03em">{{ participantsLabel }}<span style="font-size:.5em;font-weight:700;color:#A99C97"> 명</span></div>
+            <div style="margin-top:4px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:#8E8480">참가비 {{ feeLabel }}원</div>
+          </div>
+          <div style="font-size:clamp(18px,2.6vw,26px);color:#FF2E7E;font-weight:700">→</div>
+          <div style="flex:1 1 180px;min-width:0">
+            <div style="font-size:13px;color:#A99C97">완주 · 생존</div>
+            <div style="margin-top:6px;font-size:clamp(26px,4vw,40px);font-weight:900;letter-spacing:-.03em;color:#FFC24D">{{ survivorsLabel }}<span style="font-size:.5em;font-weight:700;color:#A99C97"> 명</span></div>
+            <div style="margin-top:4px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:#8E8480">탈락 {{ dropoutsLabel }}명의 판돈은 남습니다</div>
+          </div>
+          <div style="font-size:clamp(18px,2.6vw,26px);color:#FF2E7E;font-weight:700">→</div>
+          <div style="flex:1 1 200px;min-width:0;background:rgba(255,46,126,.1);border:1px solid rgba(255,46,126,.35);border-radius:16px;padding:16px">
+            <div style="font-size:13px;color:#FFB6D0">1인당 회수</div>
+            <div style="margin-top:6px;font-size:clamp(26px,4vw,40px);font-weight:900;letter-spacing:-.03em;color:#FF6BA0">{{ payoutLabel }}<span style="font-size:.42em;font-weight:700;color:#FFB6D0"> 원</span></div>
+            <div style="margin-top:4px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:#FFB6D0">원금 {{ feeLabel }} + {{ profitLabel }}</div>
+          </div>
+        </div>
+        <div style="margin-top:26px">
+          <div style="display:flex;justify-content:space-between;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#8E8480">
+            <span>총 판돈 {{ potLabel }}원</span>
+            <span>생존율 {{ survivalLabel }}%</span>
+          </div>
+          <div style="margin-top:8px;position:relative;height:14px;border-radius:999px;background:#2A1E1C;overflow:hidden">
+            <div style="position:absolute;inset:0 auto 0 0;width:{{ survivalWidth }};background:linear-gradient(90deg,#FF2E7E,#FFC24D)"></div>
+          </div>
+          <div style="margin-top:10px;display:flex;flex-wrap:wrap;justify-content:center;gap:16px;font-size:12px;color:#A99C97">
+            <span style="display:inline-flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:2px;background:#FF2E7E"></span>남은 분들이 나눠 가지는 몫</span>
+            <span style="display:inline-flex;align-items:center;gap:6px"><span style="width:9px;height:9px;border-radius:2px;background:#2A1E1C;border:1px solid #4A3634"></span>중도 포기한 분들의 판돈</span>
+          </div>
+        </div>
+        
+        <p style="margin:8px 0 0;font-size:12px;color:#8E8480">※ 위 수치는 이해를 돕기 위한 예시 시뮬레이션이며, 실제 참가 인원·완주율에 따라 회수 금액은 달라집니다.</p>
+      </div>
+    </div><p style="margin: 22px 0 0; font-size: clamp(18px,2.9vw,24px); font-weight: 700; color: #F4EDE4; margin-bottom: 0px; margin-top: clamp(22px,3.5vw,34px)">어느 쪽에 계실지는, 선생님께 달렸습니다.</p>
+  </section>
+
+  <div style="display:grid;justify-items:center;padding:clamp(18px,3.5vw,40px) 0">
+    <div style="width:1px;height:clamp(80px,15vw,150px);background:linear-gradient(rgba(255,46,126,0),rgba(255,46,126,.85) 42%,rgba(255,46,126,.85) 58%,rgba(255,46,126,0))"></div>
+  </div>
+
+  <section id="scene-04" data-scene="records" data-screen-label="04 참가자 기록" style="padding:0 0 clamp(24px,4vw,48px)">
+    <div style="max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,32px)">
+      <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);max-width:40em;margin:0 auto">
+        <h2 style="margin:0;font-size:clamp(24px,3.6vw,40px);font-weight:900;letter-spacing:-.03em;line-height:1.3">챌린지에 성공한 프루버들의 기록입니다.</h2>
+        
+      </div>
+
+      <div style="margin-top:clamp(26px,4vw,40px);display:flex;flex-wrap:wrap;gap:clamp(16px,2.4vw,26px);align-items:flex-start">
+        <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease .05s,transform .7s cubic-bezier(.2,.7,.2,1) .05s;flex:2 1 min(100%,420px);min-width:0;display:grid;gap:16px">
+          <div style="background:#15100F;border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden">
+            <div style="display:flex;align-items:center;gap:10px;padding:11px 16px;border-bottom:1px solid rgba(255,255,255,.06)">
+              <div style="width:clamp(28px,4.6vw,34px);height:clamp(28px,4.6vw,34px);border-radius:50%;background:linear-gradient(140deg,#FF2E7E,#7A1038);flex:none"></div>
+              <div style="min-width:0">
+                <div style="font-size:14px;font-weight:700">indie_maker_kim</div>
+                <div style="font-size:11px;color:#8E8480">2시간 전 · 프루빗 완주 인증</div>
+              </div>
+              <div style="margin-left:auto;color:#8E8480;font-size:18px;letter-spacing:.1em">···</div>
+            </div>
+            <div style="padding:clamp(12px,1.6vw,18px);background:radial-gradient(120% 90% at 50% 0%,rgba(255,46,126,.14),rgba(255,46,126,0) 70%)">
+              <div style="border:1px solid rgba(255,46,126,.4);border-radius:18px;background:#0E0908;padding:clamp(14px,1.9vw,20px);box-shadow:0 20px 50px -24px rgba(255,46,126,.6)">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:12px">
+                  <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;color:#FFB6D0">PROOF CARD</div>
+                  <div style="width:30px;height:30px;border-radius:50%;border:2px solid #FF2E7E;display:grid;place-items:center;flex:none"><div style="width:14px;height:3px;border-radius:2px;background:#FF2E7E"></div></div>
+                </div>
+                <div style="margin-top:12px;font-size:clamp(18px,2.3vw,23px);font-weight:900;letter-spacing:-.03em;line-height:1.3">매일 랜딩 카피 초안 1개 · 30일 완주</div>
+                <div style="margin-top:14px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,110px),1fr));gap:10px">
+                  <div><div style="font-size:11px;color:#8E8480">참가번호</div><div style="margin-top:4px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:clamp(14px,1.8vw,16px);font-weight:600">421번</div></div>
+                  <div><div style="font-size:11px;color:#8E8480">연속 달성</div><div style="margin-top:4px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:clamp(14px,1.8vw,16px);font-weight:600;color:#FFC24D">30일</div></div>
+                  <div><div style="font-size:11px;color:#8E8480">회수 금액</div><div style="margin-top:4px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:clamp(14px,1.8vw,16px);font-weight:600;color:#FF6BA0">80,645원</div></div>
+                </div>
+                <div style="margin-top:14px;padding-top:11px;border-top:1px dashed rgba(255,255,255,.14);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.12em;color:#6F6663">PROOVIT · CERT 2026-0421-30D · 프루빗 발급</div>
+              </div>
+            </div>
+            <div style="padding:10px 16px 14px">
+              <div style="display:flex;justify-content:center;gap:16px;font-size:13px;color:#A99C97">
+                <span>♥ 412</span><span>댓글 37</span><span>공유 12</span>
+              </div>
+              <p style="margin:8px 0 0;font-size:14px;line-height:1.6;color:#D8CCC6"><strong style="font-weight: 700;">30일 살아남았습니다.</strong> 5만 원 걸었고 23만 원 받았습니다. 돈보다 30일 연속 기록이 더 남네요. 다음 판도 갑니다.</p>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px">
+            <div style="background:#15100F;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px">
+              <div style="display:flex;align-items:center;justify-content:center;gap:10px">
+                <div style="width:26px;height:26px;border-radius:50%;border:2px solid #FF2E7E;display:grid;place-items:center;flex:none"><div style="width:12px;height:3px;border-radius:2px;background:#FF2E7E"></div></div>
+                <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:#FFB6D0">PROOF CARD</div>
+              </div>
+              <div style="margin-top:12px;font-size:clamp(14px,1.9vw,16px);font-weight:800;line-height:1.4">콜드메일 5통 · 21일 완주</div>
+              <div style="margin-top:12px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:#A99C97">1187번 · 연속 21일 · 회수 71,200원</div>
+            </div>
+            <div style="background:#15100F;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px">
+              <div style="display:flex;align-items:center;justify-content:center;gap:10px">
+                <div style="width:26px;height:26px;border-radius:50%;border:2px solid #FF2E7E;display:grid;place-items:center;flex:none"><div style="width:12px;height:3px;border-radius:2px;background:#FF2E7E"></div></div>
+                <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;letter-spacing:.16em;color:#FFB6D0">PROOF CARD</div>
+              </div>
+              <div style="margin-top: 12px; font-size: clamp(14px,1.9vw,16px); font-weight: 800; line-height: 1.4; color: #F4EDE4">유저 인터뷰 1건 · 14일 완주</div>
+              <div style="margin-top:12px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:#A99C97">93번 · 연속 14일 · 회수 63,800원</div>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    <p style="margin: 14px 0 0; font-size: clamp(18px,2.9vw,24px); line-height: 1.7; color: #F4EDE4; font-weight: 700; margin-top: clamp(22px,3.5vw,34px)">성공한 프루버는 얼마든지 자랑하셔도 좋습니다.</p></div>
+  </section>
+  <section id="scene-reviews" data-scene="reviews" data-screen-label="고객 리뷰" style="padding:clamp(64px,10vw,128px) 0">
+    <x-import component-from-global-scope="proovit-reviews" hint-size="100%,720px"></x-import>
+  </section>
+
+
+  <div style="display:grid;justify-items:center;padding:clamp(18px,3.5vw,40px) 0">
+    <div style="width:1px;height:clamp(80px,15vw,150px);background:linear-gradient(rgba(255,46,126,0),rgba(255,46,126,.85) 42%,rgba(255,46,126,.85) 58%,rgba(255,46,126,0))"></div>
+  </div>
+
+  <section id="rules" data-scene="rules" data-screen-label="05 규칙" style="padding:0 0 clamp(24px,4vw,48px)">
+    <div style="max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,32px)">
+      <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)">
+        <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.2em;color:#FF6BA0">RULE BOOK</div>
+        <h2 style="margin:12px 0 0;font-size:clamp(24px,3.6vw,40px);font-weight:900;letter-spacing:-.03em">게임의 규칙을 고지합니다.</h2>
+      </div>
+      <div style="margin-top:clamp(24px,3.5vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:14px">
+        <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease .05s,transform .7s cubic-bezier(.2,.7,.2,1) .05s;background:#15100F;border:1px solid rgba(255,255,255,.07);border-top:3px solid #FF2E7E;border-radius:16px;padding:24px 22px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;color:#FF6BA0">제 1 조</div>
+          <div style="margin-top:12px;font-size:clamp(17px,2vw,21px);font-weight:900;line-height:1.4">목표를 확인하십시오.</div>
+          <div style="margin-top:12px;font-size:14px;line-height:1.7;color:#A99C97">하루 안에 끝낼 수 있는 크기로만 등록됩니다. “랜딩 카피 초안 1개”처럼 작고 구체적으로.</div>
+        </div>
+        <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease .1s,transform .7s cubic-bezier(.2,.7,.2,1) .1s;background:#15100F;border:1px solid rgba(255,255,255,.07);border-top:3px solid #FF2E7E;border-radius:16px;padding:24px 22px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;color:#FF6BA0">제 2 조</div>
+          <div style="margin-top:12px;font-size:clamp(17px,2vw,21px);font-weight:900;line-height:1.4">판돈을 거십시오.</div>
+          <div style="margin-top:12px;font-size:14px;line-height:1.7;color:#A99C97">{{ feeLabel }}원. 저금통에 들어간 돈은 챌린지가 끝날 때까지 나오지 않습니다.</div>
+        </div>
+        <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease .15s,transform .7s cubic-bezier(.2,.7,.2,1) .15s;background:#15100F;border:1px solid rgba(255,255,255,.07);border-top:3px solid #FF2E7E;border-radius:16px;padding:24px 22px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;color:#FF6BA0">제 3 조</div>
+          <div style="margin-top:12px;font-size:clamp(17px,2vw,21px);font-weight:900;line-height:1.4">매일 증명하십시오.</div>
+          <div style="margin-top:12px;font-size:14px;line-height:1.7;color:#A99C97">말로는 안 됩니다. 사진 또는 결과물 링크만 인정됩니다. 하루 놓치면 탈락입니다.</div>
+        </div>
+        <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease .2s,transform .7s cubic-bezier(.2,.7,.2,1) .2s;background:#15100F;border:1px solid rgba(255,46,126,.3);border-top:3px solid #FFC24D;border-radius:16px;padding:24px 22px">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.14em;color:#FFC24D">제 4 조</div>
+          <div style="margin-top:12px;font-size:clamp(17px,2vw,21px);font-weight:900;line-height:1.4">살아남은 프루버끼리<br>나눠 가집니다.</div>
+          <div style="margin-top:12px;font-size:14px;line-height:1.7;color:#A99C97">완주자 전원에게 원금과 몫이 함께 돌아갑니다. 등수는 상관없습니다.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="display:grid;justify-items:center;padding:clamp(18px,3.5vw,40px) 0">
+    <div style="width:1px;height:clamp(80px,15vw,150px);background:linear-gradient(rgba(255,46,126,0),rgba(255,46,126,.85) 42%,rgba(255,46,126,.85) 58%,rgba(255,46,126,0))"></div>
+  </div>
+
+  <section id="scene-06" data-scene="proof" data-screen-label="06 증명 방식" style="padding:0 0 clamp(24px,4vw,48px)">
+    <div style="max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,32px)">
+      <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);max-width:36em;margin:0 auto">
+        <h2 style="margin:0;font-size:clamp(24px,3.6vw,40px);font-weight:900;letter-spacing:-.03em;line-height:1.3">“사진, 결과물을 가져오세요.<br>그것만 인정하겠습니다.”</h2>
+        <p style="margin:14px 0 0;font-size:clamp(15px,1.7vw,19px);line-height:1.7;color:#BEB0AA">증명이 없으면 달성도 없습니다.</p>
+      </div>
+      <div style="margin-top:clamp(24px,3.5vw,40px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px">
+        <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease .05s,transform .7s cubic-bezier(.2,.7,.2,1) .05s;background:#15100F;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:clamp(18px,2.4vw,24px)">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;color:#FF6BA0">METHOD 01 · 앱 내 카메라</div>
+          <h3 class="proof-method-title">실시간 촬영으로 증명하세요.</h3>
+          <p class="proof-method-description">촬영 시각과 기기 정보가 함께 봉인됩니다. 저장된 사진은 제출할 수 없습니다.</p>
+          <div style="margin-top:14px;position:relative;border-radius:14px;background:#0B0807;border:1px solid rgba(255,255,255,.08);aspect-ratio:4/3;overflow:hidden">
+            <img class="proof-photo" src="assets/실제인증.jpg" width="736" height="981" alt="모니터와 노트북에 작업 결과가 보이는 실제 인증 사진" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 48%">
+            <div style="position:absolute;top:12px;left:12px;width:26px;height:26px;border-left:2px solid rgba(255,46,126,.9);border-top:2px solid rgba(255,46,126,.9)"></div>
+            <div style="position:absolute;top:12px;right:12px;width:26px;height:26px;border-right:2px solid rgba(255,46,126,.9);border-top:2px solid rgba(255,46,126,.9)"></div>
+            <div style="position:absolute;bottom:12px;left:12px;width:26px;height:26px;border-left:2px solid rgba(255,46,126,.9);border-bottom:2px solid rgba(255,46,126,.9)"></div>
+            <div style="position:absolute;bottom:12px;right:12px;width:26px;height:26px;border-right:2px solid rgba(255,46,126,.9);border-bottom:2px solid rgba(255,46,126,.9)"></div>
+            <div style="position:absolute;left:0;right:0;bottom:0;display:flex;justify-content:space-between;gap:8px;padding:10px 12px;background:rgba(10,7,8,.85);font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:10px;color:#FFC24D">
+              <span>2026.09.09 07:12 KST</span><span>기기 촬영 검증됨</span>
+            </div>
+          </div>
+        </div>
+        <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease .1s,transform .7s cubic-bezier(.2,.7,.2,1) .1s;background:#15100F;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:clamp(18px,2.4vw,24px)">
+          <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;letter-spacing:.16em;color:#FF6BA0">METHOD 02 · 링크 AI 분석</div>
+          <div class="proof-analysis">
+            <div class="proof-intro"><h3>결과물로, 오늘의 실행을 증명하세요.</h3><p>결과물 링크를 제출하면 AI가 미션 달성 여부를 분석하고,<br>판정과 다음 실행을 위한 피드백을 전합니다.</p></div>
+            <div class="proof-example-label">분석 결과 예시 <span>DAY 12 / 30</span></div>
+            <ol class="proof-flow">
+              <li><span class="proof-step">01</span><div class="proof-step-body"><h4>결과물 링크 제출</h4><p>오늘 발행한 글, 배포한 페이지, 작업 결과를 링크로 남깁니다.</p><div class="proof-link"><span>https://myapp.io/blog/build-log-12</span><span class="proof-status">제출 완료 ✓</span></div></div></li>
+              <li><span class="proof-step">02</span><div class="proof-step-body"><h4>AI가 미션과 결과물을 비교</h4><ul class="proof-checks"><li><span>등록한 미션</span><strong>빌드 로그 1편 발행</strong></li><li><span>결과물 확인</span><strong>게시글 본문 확인 ✓</strong></li><li><span>중복 검사</span><strong>이전 제출과 중복 없음 ✓</strong></li></ul></div></li>
+              <li><span class="proof-step">03</span><div class="proof-step-body"><div class="proof-verdict"><h4>분석 결과</h4><span class="proof-status accepted">판정 · 인정 ✓</span></div><p>오늘의 미션 조건을 충족했습니다.<br><strong class="proof-record">12일째 실행 기록에 반영됩니다.</strong></p></div></li>
+            </ol>
+            <div class="proof-feedback"><span class="proof-feedback-label">AI 피드백</span><p>어제 글과 중복 문단 없이 새로운 작업 내용을 기록했습니다. 도입 3줄에 작업 전후의 변화나 숫자를 더하면 결과가 더 선명해집니다.</p><div class="proof-next"><span>다음 실행 힌트</span>“무엇을 바꿨는지 → 어떤 결과가 있었는지”를 한 문장으로 덧붙여 보세요.</div></div>
+          </div>
+          <p style="margin:14px 0 0;font-size:14px;line-height:1.7;color:#A99C97">복사·재제출·중복 제출은 자동으로 걸립니다. 이의는 24시간 안에 접수하십시오.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div style="display:grid;justify-items:center;padding:clamp(18px,3.5vw,40px) 0">
+    <div style="width:1px;height:clamp(80px,15vw,150px);background:linear-gradient(rgba(255,46,126,0),rgba(255,46,126,.85) 42%,rgba(255,46,126,.85) 58%,rgba(255,46,126,0))"></div>
+  </div>
+
+  <section id="scene-07" data-scene="board" data-screen-label="07 실시간 상황판" style="padding:0 0 clamp(24px,4vw,48px)">
+    <div style="max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,32px)">
+      <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:center;gap:14px">
+        <h2 style="margin:0;font-size:clamp(24px,3.6vw,40px);font-weight:900;letter-spacing:-.03em">지금도 프루버들이 증명해 내고 있습니다.</h2>
+        <div style="display:inline-flex;align-items:center;gap:8px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#A99C97;border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:6px 12px;white-space:nowrap"><span style="width:7px;height:7px;border-radius:50%;flex:none;background:{{ syncDot }};animation:{{ syncAnim }}"></span>{{ snapshotLabel }}</div>
+        
+      </div>
+
+      <div style="margin-top:clamp(22px,3vw,32px);display:flex;flex-wrap:wrap;gap:clamp(16px,2.4vw,24px);align-items:stretch">
+        <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease .05s,transform .7s cubic-bezier(.2,.7,.2,1) .05s;flex:1 1 320px;min-width:0;background:#15100F;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:clamp(18px,2.4vw,24px)">
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="width:8px;height:8px;border-radius:50%;background:#FF2E7E;animation:glowpulse 1.8s ease-in-out infinite"></span>
+            <span style="font-size:13px;font-weight:800;letter-spacing:.02em">방금 전</span>
+            <span style="margin-left:auto;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#8E8480">달성 피드</span>
+          </div>
+          <div style="margin-top:16px;display:grid;gap:10px">
+            <sc-for list="{{ feed }}" as="item" hint-placeholder-count="6">
+              <div style="display:flex;align-items:center;gap:12px;background:#100C0B;border:1px solid {{ item.border }};border-radius:12px;padding:12px 14px;text-align:left;opacity:{{ item.opacity }};transform:{{ item.shift }};animation:{{ item.enterAnim }};transition:opacity .5s ease,transform .5s ease,border-color .9s ease">
+                <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;font-weight:600;color:#FF6BA0;flex:none">{{ item.id }}</div>
+                <div style="min-width:0;font-size:13px;line-height:1.5;color:#D8CCC6">{{ item.text }}</div>
+                <div style="margin-left:auto;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#8E8480;flex:none">{{ item.time }}</div>
+              </div>
+            </sc-for>
+          </div>
+          <p style="margin:14px 0 0;font-size:12px;color:#8E8480">미션은 하루 단위로 작게 쪼개져 있습니다. 큰 목표는 애초에 등록되지 않습니다.</p>
+        </div>
+
+        <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease .1s,transform .7s cubic-bezier(.2,.7,.2,1) .1s;flex:1 1 320px;min-width:0;background:#15100F;border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:clamp(18px,2.4vw,24px)">
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+            <span style="font-size:13px;font-weight:800">현재 생존 인원 {{ survivorsLabel }} / {{ participantsLabel }}</span>
+            <span style="margin-left:auto;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;color:#8E8480">생존선 랭킹</span>
+          </div>
+          <div style="margin-top:16px;display:grid;gap:6px">
+            <sc-for list="{{ ranking }}" as="row" hint-placeholder-count="8">
+              <div>
+                <sc-if value="{{ row.isCut }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;align-items:center;gap:10px;margin:8px 0">
+                    <div style="flex:1;height:3px;background:#FF2E7E;box-shadow:0 0 14px rgba(255,46,126,.8)"></div>
+                    <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:11px;font-weight:600;color:#FF2E7E;white-space:nowrap">커트라인 · {{ survivorsLabel }}위</div>
+                  </div>
+                </sc-if>
+                <sc-if value="{{ row.isRow }}" hint-placeholder-val="{{ true }}">
+                  <div style="display:flex;align-items:center;gap:12px;padding:11px 14px;border-radius:11px;text-align:left;background:{{ row.bg }};border:1px solid {{ row.border }}">
+                    <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;color:#A99C97;width:2.4em;flex:none">{{ row.rank }}</div>
+                    <div style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;font-weight:600;color:{{ row.idColor }};flex:none">{{ row.id }}</div>
+                    <div style="min-width:0;font-size:12px;color:#8E8480;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ row.mission }}</div>
+                    <div style="margin-left:auto;display:flex;align-items:center;gap:8px;flex:none">
+                      <span style="font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;color:#D8CCC6">{{ row.streak }}</span>
+                      <span style="font-size:11px;font-weight:700;color:{{ row.deltaColor }};animation:{{ row.deltaAnim }}">{{ row.delta }}</span>
+                    </div>
+                  </div>
+                </sc-if>
+              </div>
+            </sc-for>
+          </div>
+          <p style="margin:14px 0 0;font-size:12px;color:#8E8480">커트라인 위아래 인원만 공개됩니다. 1등은 보여드리지 않습니다.</p>
+        </div>
+      </div>
+
+      <div data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease .14s,transform .7s cubic-bezier(.2,.7,.2,1) .14s;margin-top:clamp(18px,2.4vw,26px);border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.08)">
+        
+      </div>
+
+      <blockquote data-reveal="1" style="opacity:0;transform:translateY(26px);transition:opacity .7s ease .18s,transform .7s cubic-bezier(.2,.7,.2,1) .18s;margin:clamp(24px,4vw,40px) 0 0;padding:clamp(20px,3vw,30px);background:linear-gradient(120deg,rgba(255,46,126,.14),rgba(255,46,126,0));border-left:3px solid #FF2E7E;border-radius:0 18px 18px 0">
+        <p style="margin:0;font-size:clamp(19px,3vw,32px);font-weight:900;letter-spacing:-.03em;line-height:1.4;text-wrap:pretty">“1등이 될 필요는 없습니다.<br>생존만 하면 됩니다.”</p>
+      </blockquote>
+    </div>
+  </section>
+<section id="scene-community" data-scene="community" data-screen-label="참가자 이야기"><x-import component-from-global-scope="proovit-community" hint-size="100%,920px"></x-import></section>
+
+
+  <div style="display:grid;justify-items:center;padding:clamp(18px,3.5vw,40px) 0">
+    <div style="width:1px;height:clamp(80px,15vw,150px);background:linear-gradient(rgba(255,46,126,0),rgba(255,46,126,.85) 42%,rgba(255,46,126,.85) 58%,rgba(255,46,126,0))"></div>
+  </div>
+
+<section id="invite" data-scene="invite" data-screen-label="08 최종 초대장" aria-label="최종 초대장" style="padding:0"><x-import component-from-global-scope="proovit-ticket-invitation" hint-size="100%,260vh"></x-import></section>
+
+  <footer style="border-top:1px solid rgba(255,255,255,.07);padding:clamp(28px,4vw,44px) 0">
+    <div style="max-width:1120px;margin:0 auto;padding:0 clamp(16px,4vw,32px);display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="assets/logo-pink.webp" width="2048" height="682" loading="lazy" decoding="async" alt="프루빗" style="display:block;height:clamp(16px,2.6vw,20px);width:auto">
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:18px;font-size:13px">
+        
+      </div>
+    </div>
+    <div style="max-width:1120px;margin:16px auto 0;padding:0 clamp(16px,4vw,32px);font-size:12px;line-height:1.8;color:#6F6663">프루빗은 목표 달성 챌린지 서비스입니다. 참가비는 우연이 아닌 본인의 미션 수행 결과에 따라 정산되며, 사행성 게임이 아닙니다.</div>
+  </footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;entryFee&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:50000,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:10000,&quot;max&quot;:300000,&quot;step&quot;:10000,&quot;unit&quot;:&quot;원&quot;,&quot;section&quot;:&quot;판돈 시뮬레이션&quot;},&quot;participants&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:456,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:20,&quot;max&quot;:1000,&quot;step&quot;:1,&quot;unit&quot;:&quot;명&quot;,&quot;section&quot;:&quot;판돈 시뮬레이션&quot;},&quot;survivors&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:98,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:5,&quot;max&quot;:1000,&quot;step&quot;:1,&quot;unit&quot;:&quot;명&quot;,&quot;section&quot;:&quot;판돈 시뮬레이션&quot;},&quot;showBankProof&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;참가자 기록&quot;},&quot;feedEndpoint&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;실시간 상황판&quot;},&quot;pollInterval&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:30,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:10,&quot;max&quot;:180,&quot;step&quot;:5,&quot;unit&quot;:&quot;초&quot;,&quot;section&quot;:&quot;실시간 상황판&quot;},&quot;feedInterval&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:700,&quot;tsType&quot;:&quot;number&quot;,&quot;min&quot;:250,&quot;max&quot;:1600,&quot;step&quot;:50,&quot;unit&quot;:&quot;ms&quot;,&quot;section&quot;:&quot;실시간 상황판&quot;}}">
+const SEED = [
+  { id: '421번', text: '오늘 미션 제출 · 랜딩 카피 초안 1개', ago: 120 },
+  { id: '1187번', text: '연속 9일째 · 콜드메일 5통', ago: 260 },
+  { id: '93번', text: '오늘 미션 제출 · 온보딩 이메일 1통', ago: 430 },
+  { id: '776번', text: '오늘 미션 제출 · 가격 페이지 A/B 세팅', ago: 660 },
+  { id: '1302번', text: '연속 4일째 · 유저 인터뷰 1건 예약', ago: 790 },
+  { id: '208번', text: '연속 21일째 · 버그 3개 처리', ago: 980 }
+];
+
+const MISSIONS = ['랜딩 카피 초안 1개', '콜드메일 5통', '온보딩 이메일 1통', '가격 페이지 A/B 세팅', '유저 인터뷰 1건 예약', '버그 3개 처리', '데모 영상 1컷 편집', '빌드 로그 1편 발행'];
+const FEED_MAX = 6;
+
+const RANK_POOL = [
+  { id: '142번', mission: '빌드 로그 1편', streak: '연속 27일', delta: '' },
+  { id: '908번', mission: '콜드메일 5통', streak: '연속 26일', delta: '' },
+  { id: '421번', mission: '랜딩 카피 1개', streak: '연속 24일', delta: '▲2' },
+  { id: '1187번', mission: '데모 영상 1컷', streak: '연속 23일', delta: '▲1' },
+  { id: '93번', mission: '온보딩 메일 1통', streak: '연속 22일', delta: '▼1' },
+  { id: '776번', mission: '가격 실험 1건', streak: '연속 21일', delta: '▼2' },
+  { id: '1302번', mission: '인터뷰 1건', streak: '연속 19일', delta: '' },
+  { id: '559번', mission: '버그 3개 처리', streak: '연속 18일', delta: '' }
+];
+
+class Component extends DCLogic {
+  state = { revealed: 0, swap: false, serial: '0번', issuedAt: '', opened: false, hover: false, reduced: false, struck: false,
+    mx: 280, my: 120, flame: false, stamped: false, typed: 0,
+    items: [], newKeys: [], status: 'demo', lastSync: 0, now: Date.now(), liveSurvivors: null, liveParticipants: null };
+
+  componentDidMount() {
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const n = 1 + Math.floor(Math.random() * 1480);
+    const d = new Date();
+    const pad = (v) => String(v).padStart(2, '0');
+    this.alive = true;
+    const seeded = SEED.map((s) => ({ key: s.id + '-' + s.ago, id: s.id, text: s.text, ts: Date.now() - s.ago * 1000 }));
+    this.setState({
+      reduced,
+      items: seeded,
+      typed: reduced ? 19 : 0,
+      lastSync: Date.now(),
+      revealed: reduced ? seeded.length : 0,
+      serial: String(n) + '번',
+      issuedAt: d.getFullYear() + '.' + pad(d.getMonth() + 1) + '.' + pad(d.getDate())
+    });
+
+    const root = this.rootEl();
+    this.disposeInvitation = window.mountProovitInvitation?.(root?.querySelector("#invite"));
+    if (root) {
+      const items = root.querySelectorAll('[data-reveal]');
+      if (reduced || !('IntersectionObserver' in window)) {
+        items.forEach((el) => { el.style.opacity = '1'; el.style.transform = 'none'; });
+      } else {
+        this.io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.style.opacity = '1';
+              e.target.style.transform = 'none';
+              this.io.unobserve(e.target);
+            }
+          });
+        }, { rootMargin: '0px 0px 24px 0px', threshold: 0.05 });
+        items.forEach((el) => this.io.observe(el));
+      }
+
+      if ('IntersectionObserver' in window) {
+        this.sectionIo = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            const name = e.target.getAttribute('data-scene');
+            if (e.isIntersecting && !this.seen[name]) {
+              this.seen[name] = true;
+              this.track('section_view', { section: name });
+              if (name === 'problem') this.strikeTimer = setTimeout(() => { if (this.alive) this.setState({ struck: true }); }, 2000);
+            }
+          });
+        }, { threshold: 0.4 });
+        root.querySelectorAll('[data-scene]').forEach((el) => this.sectionIo.observe(el));
+      }
+    }
+
+    if (!reduced) {
+      this.typeStart = setTimeout(() => {
+        this.typeTimer = setInterval(() => {
+          this.setState((s) => {
+            if (s.typed >= 19) { clearInterval(this.typeTimer); return null; }
+            return { typed: s.typed + 1 };
+          });
+        }, 85);
+      }, 320);
+      this.revealTimer = setInterval(() => {
+        this.setState((s) => {
+          if (s.revealed >= s.items.length) { clearInterval(this.revealTimer); return null; }
+          return { revealed: s.revealed + 1 };
+        });
+      }, this.props.feedInterval ?? 700);
+    }
+
+    this.tickTimer = setInterval(() => { if (this.alive) this.setState({ now: Date.now() }); }, 15000);
+    this.startPolling();
+    this.onVis = () => {
+      if (document.hidden) { clearInterval(this.pollTimer); this.pollTimer = null; }
+      else if (!this.pollTimer) { this.poll(); this.startPolling(); }
+    };
+    document.addEventListener('visibilitychange', this.onVis);
+  }
+
+  startPolling() {
+    const secs = Math.max(5, Number(this.props.pollInterval ?? 30));
+    clearInterval(this.pollTimer);
+    this.pollTimer = setInterval(() => this.poll(), secs * 1000);
+  }
+
+  // 스냅샷 API 한 번 → 클라이언트에서 병합. WebSocket 없이 새로고침 없는 갱신.
+  poll() {
+    this.fetchSnapshot().then((snap) => {
+      if (!this.alive) return;
+      this.setState((s) => {
+        const incoming = snap.items || [];
+        const fresh = incoming.filter((it) => !s.items.some((x) => x.key === it.key));
+        const merged = fresh.concat(s.items).sort((a, b) => b.ts - a.ts).slice(0, FEED_MAX);
+        return {
+          items: merged,
+          newKeys: fresh.map((it) => it.key),
+          revealed: s.revealed >= s.items.length ? merged.length : s.revealed,
+          status: snap.status,
+          lastSync: Date.now(),
+          now: Date.now(),
+          swap: fresh.length ? !s.swap : s.swap,
+          liveSurvivors: typeof snap.survivors === 'number' ? snap.survivors : s.liveSurvivors,
+          liveParticipants: typeof snap.participants === 'number' ? snap.participants : s.liveParticipants
+        };
+      });
+      clearTimeout(this.flashTimer);
+      this.flashTimer = setTimeout(() => { if (this.alive) this.setState({ newKeys: [] }); }, 2800);
+    });
+  }
+
+  fetchSnapshot() {
+    const url = String(this.props.feedEndpoint || '').trim();
+    if (!url) return Promise.resolve(this.mockSnapshot());
+    return fetch(url, { cache: 'no-store', headers: { accept: 'application/json' } })
+      .then((res) => { if (!res.ok) throw new Error(res.status); return res.json(); })
+      .then((data) => ({
+        status: 'live',
+        survivors: data.survivors,
+        participants: data.participants,
+        items: (data.items || data.feed || []).map((it, i) => {
+          const id = String(it.id || it.number || '');
+          const ts = it.ts ? new Date(it.ts).getTime() : Date.now();
+          return {
+            key: id + '-' + (it.ts || i),
+            id: String(Number(id.replace(/^#/, '').replace(/번$/, ''))) + '번',
+            text: it.text || [it.mission, it.streak].filter(Boolean).join(' · '),
+            ts: isNaN(ts) ? Date.now() : ts
+          };
+        })
+      }))
+      .catch(() => ({ status: 'error', items: [] }));
+  }
+
+  mockSnapshot() {
+    const num = String(1 + Math.floor(Math.random() * 1480)) + '번';
+    const head = Math.random() < 0.5 ? '오늘 미션 제출' : '연속 ' + (2 + Math.floor(Math.random() * 28)) + '일째';
+    const ts = Date.now();
+    return { status: 'demo', items: [{ key: num + '-' + ts, id: num, text: head + ' · ' + MISSIONS[Math.floor(Math.random() * MISSIONS.length)], ts }] };
+  }
+
+  ago(ts, now) {
+    const d = Math.max(0, Math.floor((now - ts) / 1000));
+    if (d < 45) return '방금';
+    if (d < 3600) return Math.round(d / 60) + '분 전';
+    return Math.floor(d / 3600) + '시간 전';
+
+    this.onScroll = () => {
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - window.innerHeight;
+      if (max <= 0) return;
+      const pct = Math.round((window.scrollY / max) * 100);
+      [25, 50, 75, 100].forEach((mark) => {
+        if (pct >= mark && !this.depth[mark]) { this.depth[mark] = true; this.track('scroll_depth', { percent: mark }); }
+      });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+  }
+
+  componentWillUnmount() {
+    this.disposeInvitation?.();
+    if (this.raf) cancelAnimationFrame(this.raf);
+    if (this.io) this.io.disconnect();
+    if (this.sectionIo) this.sectionIo.disconnect();
+    this.alive = false;
+    clearTimeout(this.strikeTimer);
+    clearTimeout(this.typeStart);
+    clearInterval(this.typeTimer);
+    clearInterval(this.revealTimer);
+    clearInterval(this.pollTimer);
+    clearInterval(this.tickTimer);
+    clearTimeout(this.flashTimer);
+    document.removeEventListener('visibilitychange', this.onVis);
+    window.removeEventListener('scroll', this.onScroll);
+  }
+
+  seen = {};
+  depth = {};
+
+  rootEl() {
+    return document.querySelector('[data-scene="hero"]') ? document.body : null;
+  }
+
+  track(event, payload) {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push(Object.assign({ event }, payload || {}));
+    console.log('[track]', event, payload || {});
+  }
+
+  won(v) { return Number(v).toLocaleString('ko-KR'); }
+
+  renderVals() {
+    const fee = Number(this.props.entryFee ?? 50000);
+    const participants = Number(this.state.liveParticipants ?? this.props.participants ?? 456);
+    const survivors = Math.min(Number(this.state.liveSurvivors ?? this.props.survivors ?? 98), participants);
+    const pot = fee * participants;
+    const payout = survivors > 0 ? Math.floor(pot / survivors) : 0;
+    const profit = payout - fee;
+    const pct = Math.round((survivors / participants) * 1000) / 10;
+
+    const now = this.state.now;
+    const feed = this.state.items.map((f, i) => {
+      const isNew = this.state.newKeys.indexOf(f.key) !== -1;
+      return {
+        id: f.id,
+        text: f.text,
+        time: this.ago(f.ts, now),
+        opacity: i < this.state.revealed ? '1' : '0',
+        shift: i < this.state.revealed ? 'none' : 'translateY(10px)',
+        border: isNew ? 'rgba(255,46,126,.55)' : 'rgba(255,255,255,.06)',
+        enterAnim: isNew && !this.state.reduced ? 'feedin .5s cubic-bezier(.2,.7,.2,1) both' : 'none'
+      };
+    });
+
+    const pool = RANK_POOL.slice();
+    if (this.state.swap) { const t = pool[3]; pool[3] = pool[4]; pool[4] = t; }
+    const startRank = Math.max(1, survivors - 3);
+    const ranking = [];
+    pool.forEach((r, i) => {
+      const rank = startRank + i;
+      const near = Math.abs(rank - survivors) <= 2;
+      const alive = rank <= survivors;
+      if (rank === survivors + 1) {
+        ranking.push({ isCut: true, isRow: false, rank: '', id: '', mission: '', streak: '', delta: '', bg: '', border: '', idColor: '', deltaColor: '', deltaAnim: '' });
+      }
+      ranking.push({
+        isCut: false,
+        isRow: true,
+        rank: rank + '위',
+        id: r.id,
+        mission: r.mission,
+        streak: r.streak,
+        delta: near ? r.delta : '',
+        bg: alive ? '#100C0B' : 'rgba(255,255,255,.02)',
+        border: rank === survivors ? 'rgba(255,46,126,.5)' : 'rgba(255,255,255,.06)',
+        idColor: alive ? '#F4EDE4' : '#8E8480',
+        deltaColor: r.delta.indexOf('▲') === 0 ? '#FFC24D' : '#FF6BA0',
+        deltaAnim: near && !this.state.reduced ? 'arrowbob 1.6s ease-in-out infinite' : 'none'
+      });
+    });
+
+    const typed = this.state.typed;
+    const tv = {};
+    for (let i = 1; i <= 19; i++) tv['t' + i] = typed >= i ? '1' : '0';
+
+    const open = this.state.opened || this.state.hover;
+    const reduced = this.state.reduced;
+    const stamped = this.state.stamped;
+    return {
+      ...tv,
+      caretOp: typed >= 19 ? '1' : '0',
+      caretAnim: typed >= 19 && !reduced ? 'caret 1.1s steps(1) infinite' : 'none',
+      strikeX: this.state.struck ? 'scaleX(1)' : 'scaleX(0)',
+      stampOp: this.state.struck ? '1' : '0',
+      stampCard1: this.state.struck && !reduced ? 'stampdrop .5s cubic-bezier(.2,.85,.25,1) both' : 'none',
+      stampCard2: this.state.struck && !reduced ? 'stampdrop .5s cubic-bezier(.2,.85,.25,1) .16s both' : 'none',
+      stampCard3: this.state.struck && !reduced ? 'stampdrop .5s cubic-bezier(.2,.85,.25,1) .32s both' : 'none',
+      stampCard4: this.state.struck && !reduced ? 'stampdrop .5s cubic-bezier(.2,.85,.25,1) .48s both' : 'none',
+      feeLabel: this.won(fee),
+      participantsLabel: this.won(participants),
+      survivorsLabel: this.won(survivors),
+      dropoutsLabel: this.won(participants - survivors),
+      potLabel: this.won(pot),
+      payoutLabel: this.won(payout),
+      profitLabel: (profit >= 0 ? '수익 ' : '손실 ') + this.won(Math.abs(profit)),
+      survivalLabel: pct,
+      survivalWidth: pct + '%',
+      snapshotLabel: (this.state.status === 'live' ? '실시간 연동' : this.state.status === 'error' ? '연결 실패 · 마지막 스냅샷' : '스냅샷 데모') + ' · ' + (this.state.lastSync ? this.ago(this.state.lastSync, this.state.now) : '방금') + ' 갱신',
+      syncDot: this.state.status === 'live' ? '#FFC24D' : this.state.status === 'error' ? '#8E8480' : '#FF2E7E',
+      syncAnim: this.state.status === 'error' || this.state.reduced ? 'none' : 'glowpulse 1.8s ease-in-out infinite',
+      feed,
+      ranking,
+      showBankProof: this.props.showBankProof ?? true,
+      serial: this.state.serial,
+      issuedAt: this.state.issuedAt,
+      ctaLabel: stamped ? '참가번호 ' + this.state.serial + ' 확정됨' : '이 초대장을 받겠습니다',
+      hintLabel: stamped ? '도장이 찍혔습니다. 이제 되돌릴 수 없습니다.' : '클릭하시면 프루빗 도장이 찍힙니다',
+      cardTransform: open ? 'translateY(-72px) rotate(-.4deg)' : 'translateY(70px)',
+      cardAnim: stamped && !reduced ? 'cardshake .45s ease-out' : 'none',
+      sealTransform: open ? 'translate(18px,-14px) rotate(38deg) scale(.9)' : 'none',
+      sealOpacity: open ? '0' : '1',
+      flamePos: 'translate3d(' + this.state.mx + 'px,' + this.state.my + 'px,0)',
+      flameOpacity: this.state.flame ? '1' : '0',
+      flameAnimSlow: reduced ? 'none' : 'flicker 2.4s ease-in-out infinite',
+      flameAnimFast: reduced ? 'none' : 'flicker 1.1s ease-in-out infinite',
+      stampOpacity: stamped ? '1' : '0',
+      stampAnim: stamped && !reduced ? 'stampin .55s cubic-bezier(.2,.85,.25,1) both' : 'none',
+      shockAnim: stamped && !reduced ? 'shock .7s ease-out .12s both' : 'none',
+      onStageMove: (e) => {
+        const r = e.currentTarget.getBoundingClientRect();
+        const x = e.clientX - r.left;
+        const y = e.clientY - r.top;
+        if (this.raf) return;
+        this.raf = requestAnimationFrame(() => { this.raf = null; this.setState({ mx: x, my: y, flame: true, hover: true }); });
+      },
+      onStageLeave: () => this.setState({ hover: false, flame: false }),
+      onHeroCta: () => this.track('hero_cta_click', { target: 'problem' }),
+      onNavInvite: () => this.track('invite_nav_click', { source: 'header' }),
+      onInviteEnter: () => this.setState({ hover: true }),
+      onInviteLeave: () => this.setState({ hover: false }),
+      onInviteClick: () => { this.setState({ opened: true, stamped: true }); this.track('invite_click', { serial: this.state.serial }); },
+      onInviteKey: (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.setState({ opened: true, stamped: true }); this.track('invite_click', { serial: this.state.serial }); } }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

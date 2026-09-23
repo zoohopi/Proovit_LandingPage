@@ -1,0 +1,3 @@
+Tool: built-in image_gen
+
+Precisely edit the supplied image: remove ONLY the white two-line Korean headline at top center, '이 돈의 주인이 되고 싶지 않으십니까?' including quotation marks. Seamlessly reconstruct the dark black/gold atmospheric background in that small area. Do not replace it with any text or object. Preserve everything else unchanged: image dimensions and crop, large golden glass piggy bank size and position, cables, every banknote, depth of field, gold lighting, and bottom prize board with exact existing text '받게 될 예상 상금' and '50,000 → 1,250,000 원'. No rearrangement, no resizing, no new elements. Local text removal only.

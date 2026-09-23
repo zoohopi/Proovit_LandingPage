@@ -1,0 +1,51 @@
+const {chromium}=require('playwright');
+const assert=require('node:assert/strict');
+const path=require('path');
+(async()=>{
+ const browser=await chromium.launch({channel:'msedge',headless:true});
+ try{
+  const page=await browser.newPage({viewport:{width:1440,height:1000}});
+  const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  await page.goto('http://127.0.0.1:4173/proovit-landing.dc.html');
+  const host=page.locator('proovit-ticket-invitation');await host.waitFor();
+  await page.waitForTimeout(1200);
+  await page.evaluate(()=>document.fonts.load('40px Italianno'));
+  assert.equal(await page.evaluate(()=>document.fonts.check('40px Italianno')),true);
+  await host.evaluate(e=>scrollTo(0,e.getBoundingClientRect().top+scrollY));
+  await page.waitForTimeout(150);
+  for(let i=0;i<3;i++){await page.mouse.move(20,450);await page.mouse.wheel(0,120);await page.waitForTimeout(1150);}
+  assert.ok(Math.abs(await host.evaluate(e=>e.progress)-.42)<.005,'three wheels select ticket');
+  await page.screenshot({path:path.join(__dirname,'ticket-strip.png')});
+  await page.locator('proovit-ticket-invitation .next').click();await page.waitForTimeout(1150);
+  await page.screenshot({path:path.join(__dirname,'ticket-selected.png')});
+  const serial=await host.evaluate(e=>e.serial);assert.match(serial,/^\d{3}$/);
+  assert.equal(await page.locator('proovit-ticket-invitation .selected .number').textContent(),`No. ${serial}`);
+  await page.locator('proovit-ticket-invitation .next').click();await page.waitForTimeout(1150);
+  await page.screenshot({path:path.join(__dirname,'ticket-covered.png')});
+  await page.locator('proovit-ticket-invitation .next').click();await page.waitForTimeout(1150);
+  assert.equal(await page.locator('proovit-ticket-invitation .stamp-target').isEnabled(),true);
+  await page.locator('proovit-ticket-invitation .stamp-target').hover();
+  assert.equal(await page.locator('proovit-ticket-invitation .cursor-stamp').evaluate(e=>getComputedStyle(e).opacity),'0.5');
+  await page.locator('proovit-ticket-invitation .stamp-target').click({position:{x:50,y:50}});await page.waitForTimeout(850);
+  assert.equal(await page.locator('proovit-ticket-invitation dialog').evaluate(e=>e.open),true);
+  assert.equal(await page.locator('proovit-ticket-invitation .confirm').getAttribute('href'),'https://proovit-ochre.vercel.app/demo/home');
+  await page.locator('proovit-ticket-invitation .cancel').click();
+  assert.equal(await page.locator('proovit-ticket-invitation dialog').evaluate(e=>e.open),false);
+  const centered=await page.locator('proovit-ticket-invitation .stamp').evaluate(e=>{const a=e.getBoundingClientRect(),b=e.parentElement.getBoundingClientRect();return Math.abs(a.x+a.width/2-(b.x+b.width/2))<1;});assert.ok(centered);
+  await page.screenshot({path:path.join(__dirname,'ticket-stamped.png')});
+  const endScroll=await page.evaluate(()=>scrollY);await page.mouse.wheel(0,250);await page.waitForTimeout(700);
+  assert.ok(await page.evaluate(()=>scrollY)>endScroll+10,'final stage releases page');
+  await host.evaluate(e=>scrollTo(0,e.track.getBoundingClientRect().top+scrollY+e.span()));
+  await page.locator('proovit-ticket-invitation .previous').click();await page.waitForTimeout(1150);
+  assert.ok(Math.abs(await host.evaluate(e=>e.progress)-.78)<.005,'reverse works');
+  await page.setViewportSize({width:390,height:844});
+  await host.evaluate(e=>{scrollTo(0,e.track.getBoundingClientRect().top+scrollY+.58*e.span());});await page.waitForTimeout(200);
+  await page.screenshot({path:path.join(__dirname,'ticket-mobile.png')});
+  assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'no horizontal overflow');
+  await page.emulateMedia({reducedMotion:'reduce'});
+  await page.locator('proovit-ticket-invitation .next').click();await page.waitForTimeout(100);
+  assert.ok(Math.abs(await host.evaluate(e=>e.progress)-.78)<.005);
+  assert.deepEqual(errors,[]);
+  console.log('PASS full site: three-wheel reel, matching serial, cover, flip, fixed-center stamp, dialog cancel/link, reverse, mobile, reduced motion, no runtime errors');
+ }finally{await browser.close();}
+})().catch(e=>{console.error(e);process.exitCode=1;});
