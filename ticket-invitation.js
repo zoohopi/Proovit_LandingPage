@@ -60,6 +60,9 @@
       this.$('.back').addEventListener('click', e => { if(!e.target.closest('button')) this.stamp(); }, options);
       this.$('.back').addEventListener('pointermove', e => {
         const r = this.stage.getBoundingClientRect();
+        const back = this.$('.back');
+        const scale = back.getBoundingClientRect().width / parseFloat(getComputedStyle(back).width);
+        this.$('.cursor-stamp').style.width = `${parseFloat(getComputedStyle(this.$('.stamp')).width) * scale}px`;
         this.$('.cursor-stamp').style.transform = `translate(${e.clientX-r.left}px,${e.clientY-r.top}px) translate(-50%,-50%) rotate(-12deg)`;
         this.stage.classList.toggle('hover-stamp', e.pointerType!=='touch' && this.progress>.98 && !this.stamped);
       }, options);
