@@ -30,7 +30,7 @@
         </style>
         <section class="stage" aria-label="프루빗 게임 초대">
           <div class="background"></div>
-          <nav aria-label="메인 내비게이션"><a href="#scene-01" class="home" aria-label="프루빗 처음으로"><img class="logo" src="${ASSETS}logo-pink.webp" alt="프루빗"></a><a class="invite" href="#invite">초대창 확인</a></nav>
+          <nav aria-label="메인 내비게이션"><a href="#scene-01" class="home" aria-label="프루빗 처음으로"><img class="logo" src="${ASSETS}logo-pink.webp" alt="프루빗"></a><a class="invite" href="#invite">초대장 확인</a></nav>
           <canvas class="meteors" aria-hidden="true"></canvas>
           <img class="actor" src="${HERO_ASSETS}hero-proovie.png" alt="명함을 건네며 미소 짓는 프로비" fetchpriority="high">
           <canvas class="magic" aria-hidden="true"></canvas>
